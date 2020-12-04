@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+               xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             mc:Ignorable="d" NavigationPage.HasNavigationBar="False" Title="Dashboard"
+             x:Class="MobileApp.Views.DashboardPage" BackgroundColor="#ec38a3">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="55"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button  Grid.Column="0" ImageSource="icons8back.png" HeightRequest="50" WidthRequest="50"
+                   x:Name="btnback" CornerRadius="10" Command="{Binding BackbtnClicked}"
+                            TextColor="White" BackgroundColor="#ec38a3" Style="{StaticResource MediumFontButton}"/>
+                <Label Text="Course"   Grid.Column="1" HorizontalOptions="StartAndExpand" VerticalOptions="Center"
+                   FontSize="18" Style="{StaticResource BoldFontLabel}"  TextColor="White"/>
+            </Grid>
+            <yummy:PancakeView CornerRadius="50,50,0,0" Padding="0" BackgroundColor="White" Grid.Row="1">
+                <StackLayout Padding="20,25,20,20" Spacing="2">
+                   <Label  Text="All Lessons"  HorizontalOptions="StartAndExpand" FontSize="18" Style="{StaticResource BoldFontLabel}"/>
+                    <ListView x:Name="MainListView"  SeparatorVisibility="Default"
+             HasUnevenRows="True"  ItemsSource="{Binding LessonsList}"
+             ItemTapped="MainListView_ItemTapped">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <pv:PancakeView HasShadow="True" BackgroundColor="Red" VerticalOptions="StartAndExpand" 
+                                    HorizontalOptions="FillAndExpand" CornerRadius="10,0,10,0" Margin="0,0,0,5">
+                                       
+                                        <Grid Margin="8,0,0,0" BackgroundColor="White" Padding="5">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*" />
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Text="{Binding LessonName}" FontSize="18" Style="{StaticResource BoldFontLabel}"  Grid.Column="0" Grid.Row="0"/>
+                                            <Label Text="{Binding Description}"  Grid.Column="0" Grid.Row="1"/>
+                                            <Image  Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Source="icons8curvedarrow.png" 
+                                                 x:Name="btnNext" HeightRequest="18" WidthRequest="18"  />
+                                        </Grid>
+                                    </pv:PancakeView>
+                                    <!--<Frame Padding="5" Margin="0,5,0,5"
+                                        BorderColor="CadetBlue" >
+
+                                        <StackLayout 
+                                        Orientation="Vertical" 
+                                        BackgroundColor="Transparent" 
+                                        Padding="3,3,3,3"
+                                        HorizontalOptions="Fill" 
+                                        VerticalOptions="StartAndExpand">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*" />
+                                                    <RowDefinition Height="*" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+
+                                                <Label Text="{Binding LessonName}" FontSize="18" Style="{StaticResource BoldFontLabel}"  Grid.Column="0" Grid.Row="0"/>
+                                                <Label Text="{Binding Description}"  Grid.Column="0" Grid.Row="1"/>
+                                                <Button  Grid.Column="1" ImageSource="icons8curvedarrow.png" 
+                                                 x:Name="btnNext" CornerRadius="10" 
+                                                 TextColor="White"  Style="{StaticResource MediumFontButton}"/>
+                                            </Grid>
+                                        </StackLayout>
+                                    </Frame>-->
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </yummy:PancakeView>
+        </Grid>
+       
+    </ContentPage.Content>
+</ContentPage>

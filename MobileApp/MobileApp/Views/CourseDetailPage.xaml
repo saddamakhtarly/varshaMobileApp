@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             mc:Ignorable="d" NavigationPage.HasNavigationBar="False" BackgroundColor="#ec38a3"
+             x:Class="MobileApp.Views.CourseDetailPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="55"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button  Grid.Column="0" ImageSource="icons8back.png" HeightRequest="50" WidthRequest="50"
+                   x:Name="btnback" CornerRadius="10" Command="{Binding BackClicked}"
+                            TextColor="White" BackgroundColor="#ec38a3" Style="{StaticResource MediumFontButton}"/>
+                <Label Text="Course"   Grid.Column="1" HorizontalOptions="StartAndExpand" VerticalOptions="Center"
+                   FontSize="18" Style="{StaticResource BoldFontLabel}"  TextColor="White"/>
+            </Grid>
+            <yummy:PancakeView CornerRadius="50,50,0,0" Padding="0" BackgroundColor="White" Grid.Row="1"  >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="5*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="6*"/>
+                            <ColumnDefinition Width="4*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="lscmi_7.png" Scale="0.7" Grid.Column="0"  Aspect="AspectFit" VerticalOptions="Start" Margin="0,30,0,0" HorizontalOptions="Start"/>
+                        <Label Text="Warm-Ups Warm-Downs"  Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Start" Margin="0,50,0,0"
+                   FontSize="18" Style="{StaticResource MediumFontLabel}"  />
+                        <Label Text="{Binding LessonName}" x:Name="lessonname"  Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Start" 
+                   FontSize="18" Style="{StaticResource MediumFontLabel}" Margin="0,95,0,0" Opacity="0.6" />
+                        <Label Text="{Binding Name}" x:Name="name"  Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Start" 
+                   FontSize="18" Style="{StaticResource MediumFontLabel}" Margin="0,115,0,0"  TextColor="#ec38a3"/>
+
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Button Text="Play All" x:Name="btnplay" Grid.Row="0" CornerRadius="15" Margin="0,20,0,0" HorizontalOptions="Center" VerticalOptions="Center"  Command="{Binding PlayClicked}"
+                            TextColor="White" BackgroundColor="#ec38a3" HeightRequest="40" WidthRequest="100"/>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <ListView x:Name="MainListView"  SeparatorVisibility="Default"
+                          HasUnevenRows="True"  ItemsSource="{Binding MusicList}" SelectedItem="{Binding SelectedMusic,Mode=TwoWay}">
+                             
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="2*"/>
+                                            <ColumnDefinition Width="1*"/>
+                                            <ColumnDefinition Width="*"/>
+                                           
+                                        </Grid.ColumnDefinitions>
+                                            <Label Text="{Binding MusicName}" FontSize="18" Style="{StaticResource BoldFontLabel}"  Grid.Column="0" Grid.Row="0"/>
+                                            <Label Text="{Binding Duration}" Style="{StaticResource MediumFontLabel}"  Grid.Column="1" Grid.Row="0"/>
+                                            <Label Text="Play"  Style="{StaticResource MediumFontLabel}"  Grid.Column="2" Grid.Row="0"/>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                     </Grid>
+
+                </Grid>
+            </yummy:PancakeView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

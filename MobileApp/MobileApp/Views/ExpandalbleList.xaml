@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MobileApp.Views.ExpandalbleList">
+    <ContentPage.Content>
+      <StackLayout>
+            <ListView x:Name="myList" ItemsSource="{Binding ListData}" SelectedItem="{Binding SelectedListItem,Mode=TwoWay}" HasUnevenRows="True" RowHeight="100">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding Name}"/>
+                                <StackLayout Orientation="Horizontal" IsVisible="{Binding IsVisibleButtons,Mode=TwoWay}">
+                                    <Button Text="Edit" />
+                                    <Button Text="Update" />
+                                    <Button Text="Delete" Command="{Binding Path=BindingContext.DeleteItem,Source={x:Reference myList}}" CommandParameter="{Binding .}" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

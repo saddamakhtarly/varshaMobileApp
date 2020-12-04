@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MobileApp.Views.RelativePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--<BoxView x:Name="bView" BackgroundColor="Purple"
+                     RelativeLayout.WidthConstraint="{ConstraintExpression 
+                Type=RelativeToParent,Property=Width,Factor=1}"
+                     RelativeLayout.HeightConstraint="{ConstraintExpression
+                Type=RelativeToParent,Property=Height,Factor=0.3}"/>
+
+            <BoxView x:Name="smallBox" BackgroundColor="Yellow"
+                     RelativeLayout.YConstraint="{ConstraintExpression
+                Type=RelativeToView,ElementName=bView,Property=Height,Factor=0.9}"
+                     RelativeLayout.XConstraint="{ConstraintExpression
+                Type=RelativeToView,ElementName=bView,Property=Width,Factor=0.45}"/>-->
+
+            <Button Text="Capture Image" Clicked="Button_Clicked"/>
+            <Button Text="Capture Payment" Clicked="Button_Clicked_1"/>
+
+
+            <Image HeightRequest="300" WidthRequest="200" x:Name="img"/>
+            <!--<WebView x:Name="wv"/>-->
+
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

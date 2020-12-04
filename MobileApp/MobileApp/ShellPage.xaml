@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:views="clr-namespace:MobileApp.Views"
+       mc:Ignorable="d"
+             x:Class="MobileApp.ShellPage">
+    <FlyoutItem Title="Animals"
+                FlyoutDisplayOptions="AsMultipleItems">
+        <Tab Title="Domestic"
+             Icon="paw.png">
+            <ShellContent Title="Cats"
+                          Icon="home.png">
+                <views:RelativePage />
+            </ShellContent>
+            <ShellContent Title="Dogs"
+                          Icon="menu.png">
+                <views:ExpandalbleList />
+            </ShellContent>
+        </Tab>
+        <ShellContent Title="Monkeys"
+                      Icon="photo.png">
+            <views:AbsPage />
+        </ShellContent>
+       
+        <ShellContent Title="Bears"
+                      Icon="profile.png">
+            <views:DashboardPage />
+        </ShellContent>
+    </FlyoutItem>
+</Shell>
